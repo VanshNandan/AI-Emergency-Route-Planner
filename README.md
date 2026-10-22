@@ -148,6 +148,13 @@ Retraining may overwrite saved model artifacts. Ensure the expected dataset file
 ![Emergency Route Map](Screenshots/route_map.png)
 
 
+## Project Report
+
+The full report documents the project methodology, dataset, congestion prediction models, A* route-planning algorithm, experimental results, and limitations.
+
+📄 [**Read the AI Emergency Route Planner Report (PDF)**](docs/AI_Emergency_Route_Planner_Report.pdf)
+
+
 ## Limitations
 
 - The dataset is synthetic rather than live traffic data.
