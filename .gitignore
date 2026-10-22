@@ -179,3 +179,23 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+
+# Local datasets
+data/
+downloaded-dataset/
+
+# Trained model artifacts
+models/*.joblib
+models/*.pkl
+models/*.pickle
+
+# Python environment and cache
+venv/
+__pycache__/
+*.py[cod]
+
+# Local secrets
+.env
+.env.*
+!.env.example
