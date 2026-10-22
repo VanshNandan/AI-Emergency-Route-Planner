@@ -1,142 +1,163 @@
+# AI Emergency Route Planner 🚑
 
-# AI Emergency Route Planner
-
-An AI-powered route-planning project that uses predicted
-road congestion to identify efficient routes for emergency
-travel.
+A machine learning-based route planning prototype that predicts road congestion and uses graph-based path planning to identify efficient routes for emergency travel.
 
 ## Overview
 
-Emergency vehicles need efficient routes to reach their
-destinations. This project combines machine learning-based
-congestion prediction with graph-based route planning to
-estimate travel time and identify suitable paths across a
-road network.
+Emergency vehicles need efficient routes to reach their destinations. This project combines traffic congestion prediction with graph-based route planning to estimate route travel time and help identify suitable paths across a road network.
 
-The project includes a Streamlit interface for interacting
-with route-planning results.
+The application uses **Python, Scikit-learn, and Streamlit** to demonstrate how machine learning can support congestion-aware route planning.
 
 ## Features
 
-- Traffic congestion prediction using machine learning
-- Decision Tree and Random Forest model comparison
-- Graph-based route planning
-- Estimated travel time for selected routes
-- Streamlit interface for displaying results
-- Model evaluation using MAE, RMSE, and R-squared
+- Predict road congestion using machine learning.
+- Compare Decision Tree and Random Forest regression models.
+- Plan routes over a directed road network.
+- Estimate travel time for a selected route.
+- Display route-planning results through a Streamlit interface.
+- Evaluate model performance using MAE, RMSE, and R².
 
 ## Technology Stack
 
-- Python
-- Scikit-learn
-- Streamlit
-- NumPy and Pandas (if used in the final application)
-- Graph-based route search
+- **Language:** Python
+- **Machine Learning:** Scikit-learn
+- **Data Processing:** NumPy, Pandas
+- **Interface:** Streamlit
+- **Route Planning:** Graph-based path search
 
 ## Dataset
 
-The project uses the Electronic City Traffic Dataset
-for Bengaluru, India.
+The project uses the **Electronic City Traffic Dataset** for Bengaluru, India.
 
-The dataset contains synthetic traffic time-series data,
-including vehicle speed, vehicle count, and congestion
-information.
+The dataset contains synthetic traffic time-series data with vehicle speed, vehicle count, and congestion information.
 
-- 17,280 timestamps
-- 602 directed road segments
-- 262 road-network nodes
-- Five-minute temporal resolution
+| Dataset characteristic | Value |
+|---|---:|
+| Time-series timestamps | 17,280 |
+| Directed road segments | 602 |
+| Road-network nodes | 262 |
+| Temporal resolution | 5 minutes |
 
-The dataset is synthetic and should not be interpreted
-as live traffic sensor data.
+**Important:** The dataset is synthetic, not live traffic sensor data. Results demonstrate a prototype and should not be interpreted as validated real-world emergency response performance.
 
-## Machine Learning Results
+## Model Performance
 
-The Random Forest model performed better than the
-Decision Tree model on the evaluated test dataset.
+Two regression models were trained and evaluated for congestion prediction.
 
-| Model | MAE | RMSE | R-squared |
+| Model | MAE ↓ | RMSE ↓ | R² ↑ |
 |---|---:|---:|---:|
 | Decision Tree | 0.0725 | 0.0973 | 0.7967 |
 | Random Forest | 0.0683 | 0.0900 | 0.8258 |
 
-These metrics evaluate congestion prediction, not
-real-world emergency response performance.
+The Random Forest model achieved lower MAE and RMSE and a higher R² on the evaluated test dataset.
+
+- **MAE:** Mean Absolute Error
+- **RMSE:** Root Mean Squared Error
+- **R²:** Coefficient of Determination
+
+These metrics measure congestion prediction performance, not actual emergency response times.
 
 ## Project Structure
 
-Adapt this outline to match the actual repository.
+```text
+AI-Emergency-Route-Planner/
+├── data/
+├── models/
+├── Screenshots/
+├── app.py
+├── train_models.py
+├── route_planner.py
+├── inspect_dataset.py
+├── inspect_network.py
+├── check_matrix.py
+├── plot_comparison.py
+├── .gitignore
+└── README.md
+```
 
-- `README.md` - Project documentation
-- `train_models.py` - Model training script, if applicable
-- `models/` - Model artifacts, if distributed separately
-- `screenshots/` - Application screenshots
-- Streamlit entry-point script - Application interface
+- `app.py` — Streamlit application.
+- `train_models.py` — Trains and evaluates the machine learning models.
+- `route_planner.py` — Route-planning logic.
+- `inspect_dataset.py` — Inspects dataset information.
+- `inspect_network.py` — Inspects the road network.
+- `check_matrix.py` — Checks traffic matrix data.
+- `plot_comparison.py` — Generates model comparison plots.
+- `data/` — Dataset files.
+- `models/` — Saved model artifacts and evaluation metrics.
+- `Screenshots/` — Application screenshots, if added.
 
-## Installation
+## Installation and Usage
 
-1. Clone this repository.
-2. Create and activate a Python virtual environment.
-3. Install the dependencies.
-4. Prepare the dataset and model artifacts as documented.
-5. Run the training script if model artifacts are not
-   provided.
-6. Start the Streamlit application.
+### 1. Clone the repository
 
-Example commands:
+```bash
+git clone https://github.com/VanshNandan/AI-Emergency-Route-Planner.git
+cd AI-Emergency-Route-Planner
+```
+
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Windows:
+On Windows, activate it using:
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Install dependencies:
+### 3. Install dependencies
+
+Install the packages required by the project:
 
 ```bash
-pip install -r requirements.txt
+pip install numpy pandas scikit-learn streamlit matplotlib joblib
 ```
 
-Train the model, if required:
+If the application reports any missing package, install the corresponding dependency as well.
 
-```bash
-python train_models.py
-```
-
-Run the application, replacing `app.py` with the
-actual Streamlit entry-point filename:
+### 4. Run the application
 
 ```bash
 streamlit run app.py
 ```
 
+### 5. Train the models (optional)
+
+If you want to retrain the models, run:
+
+```bash
+python train_models.py
+```
+
+Retraining may overwrite saved model artifacts. Ensure the expected dataset files are present before running the training script.
+
 ## Screenshots
 
-Add screenshots of the running application to the
-`screenshots/` directory and link them here.
+Application screenshots can be added here to demonstrate the Streamlit interface, model comparison, and route-planning results.
 
 ## Limitations
 
-- The traffic dataset is synthetic.
-- Predictions depend on the training data and model.
-- Estimated travel times are experimental and are not
-  validated emergency-response guarantees.
-- The application is a project prototype, not a
-  production emergency dispatch system.
+- The dataset is synthetic rather than live traffic data.
+- Predictions depend on the dataset and trained model.
+- Estimated travel times are experimental.
+- The prototype is not a production emergency dispatch system and should not be used to make real emergency-routing decisions.
 
 ## Future Improvements
 
-- Integration with validated, real-time traffic sources
-- Improved route optimization
-- Additional model evaluation and validation
-- Deployment as an accessible web application
+- Integrate validated real-time traffic data.
+- Improve route optimization and travel-time estimation.
+- Evaluate models using additional datasets and validation methods.
+- Deploy the application for broader accessibility.
+- Explore additional machine learning models.
 
 ## Author
 
-Vansh Nandan  
-B.Tech. Computer and Communication Engineering  
+**Vansh Nandan**  
+B.Tech. — Computer and Communication Engineering  
 Manipal University Jaipur
+
+---
+
+*Developed as an academic machine learning and route-planning project.*
