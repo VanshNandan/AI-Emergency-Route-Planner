@@ -1,0 +1,32 @@
+{
+  "target": "Congestion index 5 minutes ahead",
+  "features": [
+    "current_speed_kmh",
+    "current_vehicle_count",
+    "current_congestion",
+    "previous_congestion",
+    "hour",
+    "day_of_week",
+    "edge_id"
+  ],
+  "chronological_split": "First 80% train; final 20% test",
+  "sample_sizes": {
+    "train": 60000,
+    "test": 15000
+  },
+  "results": {
+    "Decision Tree": {
+      "MAE": 0.07249366630018585,
+      "RMSE": 0.09726463600338606,
+      "R2": 0.7966903834529375,
+      "training_seconds": 0.3
+    },
+    "Random Forest": {
+      "MAE": 0.06831862996273033,
+      "RMSE": 0.09004551820130045,
+      "R2": 0.8257502382318287,
+      "training_seconds": 2.88
+    }
+  },
+  "best_model": "Random Forest"
+}
