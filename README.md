@@ -135,7 +135,18 @@ Retraining may overwrite saved model artifacts. Ensure the expected dataset file
 
 ## Screenshots
 
-Application screenshots can be added here to demonstrate the Streamlit interface, model comparison, and route-planning results.
+### Dashboard
+![Application Dashboard](Screenshots/Dashboard.png)
+
+### Model Comparison
+![Decision Tree vs Random Forest](Screenshots/model_comparison.png)
+
+### Road Network Analysis
+![Road Network Analysis](Screenshots/road_analysis.png)
+
+### Route Planning Map
+![Emergency Route Map](Screenshots/route_map.png)
+
 
 ## Limitations
 
